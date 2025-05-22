@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}會員系統 - 註冊{% endblock %}
+{% block content %}
+
+<h1 class="title">會員註冊</h1>
+
+<form method="post" action="{{ url_for('register') }}">
+
+    <!-- 表單中「用戶名」、「電子郵件」和「密碼」欄位設置 required 屬性 -->
+    <label for="username" class="form-label">用戶名</label>
+    <input type="text" class="form-control" id="username" name="username" required>
+
+    <label for="email" class="form-label">電子郵件</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+
+    <label for="password" class="form-label">密碼</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+
+    <label for="phone" class="form-label">手機號碼</label>
+    <input type="tel" class="form-control" id="phone" name="phone">
+
+    <!-- 「出生年月日」使用 <input type="date"> -->
+    <label for="birthdate" class="form-label">出生年月日</label>
+    <input type="date" class="form-control" id="birthdate" name="birthdate">
+
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-success">註冊</button>
+    </div>
+</form>
+
+{% endblock %}
