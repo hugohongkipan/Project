@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}會員系統 - 修改基本資料{% endblock %}
+{% block content %}
+
+<h1 class="title">修改基本資料</h1>
+
+<form method="post" action="{{ url_for('edit_profile', iid=member['iid']) }}">
+
+    <!-- 提供表單，包含「用戶名」（唯讀，readonly）、「電子郵件」、
+        「密碼」、「手機」、「出生年月日」輸入欄位，使用 POST 方法提交 -->
+    <label for="username" class="form-label">用戶名</label>
+    <input type="text" class="form-control" id="username" name="username" value="{{ member['username'] }}" readonly>
+
+
+    <!-- 表單中「電子郵件」和「密碼」欄位設置 required 屬性；
+        「出生年月日」使用 <input type="date"> -->
+    <label for="email" class="form-label">電子郵件</label>
+    <input type="email" class="form-control" id="email" name="email" value="{{ member['email'] }}" required>
+
+    <label for="password" class="form-label">密碼</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+
+    <label for="phone" class="form-label">手機號碼</label>
+    <input type="tel" class="form-control" id="phone" name="phone" value="{{ member['phone'] or '' }}">
+
+    <label for="birthdate" class="form-label">出生年月日</label>
+    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ member['birthdate'] or '' }}">
+
+    <!-- 提供「儲存」和「離開」按鈕：
+        「儲存」：提交表單，更新資料庫
+        「離開」：直接重定向至歡迎頁面（welcome.html）-->
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary m-2">儲存</button>
+        <a href="{{ url_for('welcome', username=member['username']) }}" class="btn btn-secondary m-2">離開</a>
+    </div>
+
+</form>
+
+{% endblock %}
