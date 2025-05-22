@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}會員系統 - 首頁{% endblock %}
+{% block content %}
+
+<!-- 顯示「會員系統首頁」標題 -->
+<h1 class="title">會員系統首頁</h1>
+<h6 class="content1">歡迎使用會員系統！請選擇以下操作：</h6>
+
+<!-- 提供「登入」和「註冊」的連結，分別指向/login 和 /register，使用 url_for 產生連結 -->
+<div class="text-center">
+    <a href="{{ url_for('login') }}" class="btn btn-primary m-2">登入</a>
+    <a href="{{ url_for('register') }}" class="btn btn-success m-2">註冊</a>
+</div>
+
+{% endblock %}
