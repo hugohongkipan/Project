@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}會員系統 - 歡迎{% endblock %}
+{% block content %}
+
+<h1 class="title">{{ username | add_stars }}</h1>
+<h6 class="content1">您已成功登入會員系統！</h6>
+
+<div class="text-center">
+
+    <!-- 在歡迎頁面（welcome.html）顯示「修改基本資料」連結，
+        指向 /edit_profile/<iid>，使用 url_for 產生 -->
+    <a href="{{ url_for('edit_profile', iid=iid) }}" class="btn btn-primary m-2">修改基本資料</a>
+
+    <!-- 在歡迎頁面（welcome.html）顯示「刪除使用者」按鈕，
+        點擊後觸發 JavaScript confirm 視窗，
+        提示「若刪除這個使用者，所有相關記錄將一併刪除，是否繼續？」。 -->
+    <a href="{{ url_for('delete_user', iid=iid) }}"
+    class="btn btn-danger m-2"
+    onclick="return confirm('若刪除這個使用者，所有相關記錄將一併刪除，是否繼續？');">
+    刪除使用者
+    </a>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary m-2">返回首頁</a>
+</div>
+
+{% endblock %}
