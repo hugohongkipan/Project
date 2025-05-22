@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}會員系統 - 錯誤{% endblock %}
+{% block content %}
+
+<h1 class="title">錯誤</h1>
+
+<div class="text-center">
+    <p class="text-danger">{{ message }}</p>
+
+    <!-- 顯示錯誤訊息，
+        提供「返回前一頁」和「返回首頁」連結（使用javascript:history.back() -->
+    <a href="javascript:history.back()" class="btn btn-primary m-2">返回前一頁</a>
+
+    <!-- 和「返回首頁」連結（使用 url_for('index')） -->
+    <a href="{{ url_for('index') }}" class="btn btn-secondary m-2">返回首頁</a>
+</div>
+
+{% endblock %}
