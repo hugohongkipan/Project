@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}會員系統 - 登入{% endblock %}
+{% block content %}
+
+<h1 class="title">會員登入</h1>
+
+<form method="post" action="{{ url_for('login') }}">
+
+    <!-- 表單中「電子郵件」和「密碼」欄位設置 required 屬性 -->
+    <label for="email" class="form-label">電子郵件</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+
+    <label for="password" class="form-label">密碼</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+
+
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">登入</button>
+    </div>
+</form>
+
+{% endblock %}
